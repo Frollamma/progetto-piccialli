@@ -18,12 +18,20 @@
           packages = with pkgs;
             [
               python311
-              python311
               poetry
             ] ++ (with pkgs.python311Packages; [
               pip
               icecream
               black
+              jupyterlab
+              notebook
+              nodejs
+              ipython
+              pandas
+              seaborn
+              matplotlib
+              scipy
+              scikit-learn 
             ]);
           shellHook = ''
             echo
