@@ -31,7 +31,8 @@
               seaborn
               matplotlib
               scipy
-              scikit-learn 
+              scikit-learn
+              # scikit-learn-extra
             ]);
           shellHook = ''
             echo

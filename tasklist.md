@@ -4,10 +4,15 @@ Programma studio:
 - 17/05/2024: Teoria outliers: cos'è box plot e violin plot. Pearson correlation factor (fail), chi squared text (fail)
 - 18/05/2024: Suddivisione features numeriche e categoriche, droppato features con valore fisso, fix grafico Pearson correlation factor, conversione features categoriche in numeriche
 - 22/05/2024: Conversione dtypes delle features, conversione di feature categoriche in numeriche, feature selection con Pearson e Chi Squared, inizio PCA
-- 23/05/2024:
+- 23/05/2024: Applicazione K-means,calcolo silhouette score, teoria decision tree
 
 TODO:
 
+- Random forest, xgboost
+- Vedi silhouette score
+- Aggiusta metriche kmeans
+- Vedi codice hierarchical clustering (opzionale)
+- Vedi decision trees
 - Aggiungi violin plot
 - Il box plot e il violin plot servono per trovare outlier e, se confrontati a due a due per classi diverse, determinare se una particolare feature può permettere di distinguere le classi
 - Rescaling prima PCA, di Pearson e del Chi Squared e prima del training
