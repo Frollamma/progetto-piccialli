@@ -18,6 +18,6 @@ TODO:
 - Il box plot e il violin plot servono per trovare outlier e, se confrontati a due a due per classi diverse, determinare se una particolare feature può permettere di distinguere le classi
 - Rescaling prima PCA, di Pearson e del Chi Squared e prima del training
 - Se ho due record con le stesse features e label diverse, che faccio? - Chiedi al prof
-- Fai training con K-means e K-metoids per la classificazione
+- Fai training con K-means e K-medoids per la classificazione
 - Finisci hierarchical clustering
 - implementa hierarchical clustering
