@@ -7,7 +7,7 @@ Columns:
   - 'class_target' (categorical): the target class
 - Well features:
   - 'well_plate_name' (categorical): well plate numbering
-  - 'wp_image_version' (categorical): Indicates the version of the wellplate image, as multiple photos are taken of the same wellplate.
+  - 'wp_image_version' (categorical): Indicates the version of the wellplate image, as multiple photos are taken of the same wellplate. Our own interpretation: it indicates all the photo settings together
   - 'well_name' (categorical): name of a single well in the well plate. In a standard 96-well plate, the rows are generally labeled with the letters A-H and the columns are labeled with the numbers 1-12.
     Therefore, the well in the top left corner will be well A1, while the well in the bottom right corner will be well H12.
   - 'wp_image_prop' (numeric): no description given

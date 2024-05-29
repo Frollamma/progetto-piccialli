@@ -33,6 +33,7 @@
               scipy
               scikit-learn
               # scikit-learn-extra
+              statsmodels
             ]);
           shellHook = ''
             echo

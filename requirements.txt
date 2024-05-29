@@ -1,2 +1,7 @@
 pandas
 pillow
+statsmodels
+seaborn
+matplotlib
+scipy
+scikit-learn
