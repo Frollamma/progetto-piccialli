@@ -8,13 +8,10 @@ Programma studio:
 - 29/05/2024: Capito cosa indica `wp_image_version`, aggiunti commenti di teoria, migliorato calcolo matrice di correlazione di Pearson, migliorato introduzione, riordinato il codice, aumentato parametri PCA
 - 30/05/2024: Improve chi-squared feature selection, applicazione t-SNE e UMAP su PCA, fix K-means e K-medoids con le metriche, add random forest classifier, random forest theory
 - 31/05/2024: Can't run K-medoids and hierarchical clustering, Add xgboost, Add KNN, teoria random forest, XGBoost, Cross validation, Variance-Bias tradeoff
+- 5/06/2024: Finish classification: apply SVM, apply Naive Bayes. Add Feature Selection with Random Forest.
 
 TODO:
 
-- Finire k-means
-- Random forest, xgboost
-- Vedi silhouette score
-- Aggiusta metriche kmeans
 - Vedi codice hierarchical clustering (opzionale)
 - Vedi decision trees
 - Aggiungi violin plot
