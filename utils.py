@@ -23,10 +23,13 @@ def plot_confusion_matrix(y_true, y_pred):
 
 
 def print_full_classification_report(y_true, y_pred, target_names=None):
+    accuracy = accuracy_score(y_true, y_pred)
+    print(f"Accuracy: {accuracy}")
+
     print("Confusion matrix:")
     plot_confusion_matrix(y_true, y_pred)
 
     print("Classification Report:")
     print(classification_report(y_true, y_pred, target_names=target_names))
 
-    print("Silhouette Score:", silhouette_score(y_true, y_pred))
+    # print("Silhouette Score:", silhouette_score(y_true, y_pred))
