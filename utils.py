@@ -1,10 +1,13 @@
-# Print the confusion matrix
 from sklearn.metrics import (
     accuracy_score,
     confusion_matrix,
     silhouette_score,
     classification_report,
+    mean_absolute_error,
+    mean_squared_error,
 )
+from sklearn.linear_model import LinearRegression
+import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
 
@@ -33,3 +36,18 @@ def print_full_classification_report(y_true, y_pred, target_names=None):
     print(classification_report(y_true, y_pred, target_names=target_names))
 
     # print("Silhouette Score:", silhouette_score(y_true, y_pred))
+
+
+def print_full_regression_report(y_true, y_pred):
+    # Calculate the mean absolute error
+    mae = mean_absolute_error(y_true, y_pred)
+    print(f"Mean absolute error: {mae}")
+
+    # Calculate the mean squared error
+    mse = mean_squared_error(y_true, y_pred)
+    print(f"Mean squared error: {mse}")
+
+    # Calculate the relative error
+    relative_errors = np.abs((y_true - y_pred) / y_true)
+    mean_relative_error = np.mean(relative_errors)
+    print(f"Mean relative error: {mean_relative_error}")

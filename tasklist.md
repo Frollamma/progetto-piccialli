@@ -9,6 +9,9 @@ Programma studio:
 - 30/05/2024: Improve chi-squared feature selection, applicazione t-SNE e UMAP su PCA, fix K-means e K-medoids con le metriche, add random forest classifier, random forest theory
 - 31/05/2024: Can't run K-medoids and hierarchical clustering, Add xgboost, Add KNN, teoria random forest, XGBoost, Cross validation, Variance-Bias tradeoff
 - 5/06/2024: Finish classification: apply SVM, apply Naive Bayes. Add Feature Selection with Random Forest.
+- 6/06/2024: Teoria deep learning
+- 6/06/2024: Finiamo teoria deep learning
+- 10/06/2024: Troviamo errore con classificazione deep learning: probabilmente y dev'essere un vettore. Regressione con media, Linear Regression, Random Forest, XGBoost, KNN, SVR.
 
 TODO:
 
