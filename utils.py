@@ -51,3 +51,29 @@ def print_full_regression_report(y_true, y_pred):
     relative_errors = np.abs((y_true - y_pred) / y_true)
     mean_relative_error = np.mean(relative_errors)
     print(f"Mean relative error: {mean_relative_error}")
+
+
+def create_training_history_plot(history):
+    plt.plot(history.history["loss"], label="train")
+    plt.plot(history.history["val_loss"], label="valid")
+    plt.title("Model Loss")
+    plt.ylabel("Loss")
+    plt.xlabel("Epoch")
+    plt.legend()
+    plt.show()
+
+    plt.plot(history.history["mae"], label="train")
+    plt.plot(history.history["val_mae"], label="valid")
+    plt.title("Model MAE")
+    plt.ylabel("MAE")
+    plt.xlabel("Epoch")
+    plt.legend()
+    plt.show()
+
+    plt.plot(history.history["mse"], label="train")
+    plt.plot(history.history["val_mse"], label="valid")
+    plt.title("Model MSE")
+    plt.ylabel("MSE")
+    plt.xlabel("Epoch")
+    plt.legend()
+    plt.show()
