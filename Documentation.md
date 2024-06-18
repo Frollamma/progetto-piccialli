@@ -35,4 +35,4 @@ Columns:
   - [CHANNEL]\_entropy2 (numeric): another calculation of entropy
   - [CHANNEL]\_entropy_glcm (numeric): Entropy calculated based on the Gray Level Co-occurrence Matrix (GLCM)
 - Other features
-  - 'mock' (categorical): no description given. We interpreted this as a way of saying if the record was generated or not. It has only one value of `False`
+  - 'mock' (categorical): no description given. We interpreted this as a way of saying if the record was generated or not. It has only the value of `False`
