@@ -13,6 +13,8 @@ Programma studio:
 - 6/06/2024: Finiamo teoria deep learning
 - 10/06/2024: Troviamo errore con classificazione deep learning: probabilmente y dev'essere un vettore. Regressione con media, Linear Regression, Random Forest, XGBoost, KNN, SVR.
 - 11/06/2024: Aggiustiamo deep learning classificazione. Facciamo Deep learning regressione. Salviamo dei dati in file pkl
+- 17/06/2024 (Frollo): Inizio ad impostare la tesina
+- 18/06/2024 (Frollo): Impostata la tesina, scritto abstract, introduzione e descrizione del dataset
 
 TODO:
 
