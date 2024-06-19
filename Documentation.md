@@ -3,11 +3,11 @@
 Columns:
 
 - Labels:
-  - ‘value_target’ (numeric): the target value (the concentration value)
-  - 'class_target' (categorical): the target class
+  - ‘value_target’ (numeric): the target value (the gold concentration value)
+  - 'class_target' (categorical): the target class (the concentration of bacteria)
 - Well features:
   - 'well_plate_name' (categorical): well plate numbering
-  - 'wp_image_version' (categorical): Indicates the version of the wellplate image, as multiple photos are taken of the same wellplate. Our own interpretation: it indicates all the photo settings together
+  - 'wp_image_version' (categorical): Indicates the version of the well plate image, as multiple photos are taken of the same well plate. Our own interpretation: it indicates all the camera settings together, changing version means changing camera settings and vice versa.
   - 'well_name' (categorical): name of a single well in the well plate. In a standard 96-well plate, the rows are generally labeled with the letters A-H and the columns are labeled with the numbers 1-12.
     Therefore, the well in the top left corner will be well A1, while the well in the bottom right corner will be well H12.
   - 'wp_image_prop' (numeric): no description given
@@ -35,4 +35,4 @@ Columns:
   - [CHANNEL]\_entropy2 (numeric): another calculation of entropy
   - [CHANNEL]\_entropy_glcm (numeric): Entropy calculated based on the Gray Level Co-occurrence Matrix (GLCM)
 - Other features
-  - 'mock' (categorical): no description given. We interpreted this as a way of saying if the record was generated or not. It has only one value of `False`
+  - 'mock' (categorical): no description given. We interpreted this as a way of saying if the record was generated or not. It has only the value of `False`
