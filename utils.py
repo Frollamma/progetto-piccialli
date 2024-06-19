@@ -12,9 +12,12 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 
 
-def plot_confusion_matrix(y_true, y_pred):
+def plot_confusion_matrix(y_true, y_pred, classes=None):
     # Create the confusion matrix
     conf_matrix = confusion_matrix(y_true, y_pred)
+
+    if classes is None:
+        classes = np.unique(y_true)
 
     # Plot the confusion matrix
     plt.figure(figsize=(8, 6))
@@ -22,6 +25,12 @@ def plot_confusion_matrix(y_true, y_pred):
     plt.xlabel("Predicted label")
     plt.ylabel("True label")
     plt.title("Confusion Matrix")
+
+    tick_marks = np.arange(len(classes)) + 0.5
+
+    plt.xticks(tick_marks, classes)
+    plt.yticks(tick_marks, classes)
+
     plt.show()
 
 
@@ -30,7 +39,7 @@ def print_full_classification_report(y_true, y_pred, target_names=None):
     print(f"Accuracy: {accuracy}")
 
     print("Confusion matrix:")
-    plot_confusion_matrix(y_true, y_pred)
+    plot_confusion_matrix(y_true, y_pred, classes=target_names)
 
     print("Classification Report:")
     print(classification_report(y_true, y_pred, target_names=target_names))
