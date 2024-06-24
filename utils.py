@@ -34,9 +34,19 @@ def plot_confusion_matrix(y_true, y_pred, classes=None):
     plt.show()
 
 
-def print_full_classification_report(y_true, y_pred, target_names=None):
+def print_full_classification_report(y_true, y_pred, X_test=None, target_names=None):
     accuracy = accuracy_score(y_true, y_pred)
     print(f"Accuracy: {accuracy}")
+
+    if X_test is not None:
+        print("Scatter plot of the test data:")
+        plt.figure(figsize=(8, 6))
+        plt.scatter(X_test[:, 0], X_test[:, 1], c=y_pred, cmap="viridis")
+        plt.xlabel("Component 1")
+        plt.ylabel("Component 2")
+        plt.title("Scatter plot of the test data")
+        plt.colorbar()
+        plt.show()
 
     print("Confusion matrix:")
     plot_confusion_matrix(y_true, y_pred, classes=target_names)
