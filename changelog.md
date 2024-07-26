@@ -16,6 +16,7 @@ Programma studio:
 - 17/06/2024 (Frollo): Inizio ad impostare la tesina
 - 18/06/2024 (Frollo): Impostata la tesina, scritto abstract, introduzione e descrizione del dataset
 - 25/07/2024: New dataset with only numeric features, feature selection sul nuovo dataset
+- 26/07/2024: Finish classification and first part of regression with numeric only dataset.
 
 TODO:
 

@@ -34,7 +34,16 @@ def plot_confusion_matrix(y_true, y_pred, classes=None):
     plt.show()
 
 
-def print_full_classification_report(y_true, y_pred, X_test=None, target_names=None):
+def print_full_classification_report(
+    y_true, y_pred, X_test=None, axes_names=None, classes_names=None
+):
+    if axes_names is None:
+        axes_names = ["x1", "x2"]
+
+    assert (
+        len(axes_names) == 2
+    ), "axes_names params is not valid, you ahv eto give a list of 2 elements (or leave it None), because the plot is 2D"
+
     accuracy = accuracy_score(y_true, y_pred)
     print(f"Accuracy: {accuracy}")
 
@@ -42,17 +51,18 @@ def print_full_classification_report(y_true, y_pred, X_test=None, target_names=N
         print("Scatter plot of the test data:")
         plt.figure(figsize=(8, 6))
         plt.scatter(X_test[:, 0], X_test[:, 1], c=y_pred, cmap="viridis")
-        plt.xlabel("Component 1")
-        plt.ylabel("Component 2")
+
+        plt.xlabel(axes_names[0])
+        plt.ylabel(axes_names[1])
         plt.title("Scatter plot of the test data")
         plt.colorbar()
         plt.show()
 
     print("Confusion matrix:")
-    plot_confusion_matrix(y_true, y_pred, classes=target_names)
+    plot_confusion_matrix(y_true, y_pred, classes=classes_names)
 
     print("Classification Report:")
-    print(classification_report(y_true, y_pred, target_names=target_names))
+    print(classification_report(y_true, y_pred, target_names=classes_names))
 
     # print("Silhouette Score:", silhouette_score(y_true, y_pred))
 
