@@ -10,6 +10,25 @@ from sklearn.linear_model import LinearRegression
 import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
+from sklearn.base import BaseEstimator, TransformerMixin
+
+
+class IdentityScaler(BaseEstimator, TransformerMixin):
+    def fit(self, X, y=None):
+        return self
+
+    def transform(self, X):
+        return X
+
+    def fit_transform(self, X):
+        return X
+
+
+LABELS = ["class_target", "value_target"]
+
+
+def get_features(df, labels=LABELS):
+    return [col for col in df.columns if col not in labels]
 
 
 def plot_confusion_matrix(y_true, y_pred, classes=None):

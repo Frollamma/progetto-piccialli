@@ -10,3 +10,5 @@ TODO:
 - Finish only numeric dataset. Don't use dimensionality reduction
 - Fix onehot
 - Create categorical dataset
+- Capisci perché puoi fare lo scaling sulle features, in particolare su quelle che hanno una scala $[0, \infty]$ pur sapendo che non esiste un isometria da $[0, 1]$ a $[0, \infty]$
+- Abbiamo provato a concludere deep learning per la regressione, però c'è un problema con lo scaling - con glki stessi dati otteniamo risultati diversi (se non sbaglio per la division del training set e test set utilizziamo lo stesso seed 42).

@@ -17,6 +17,7 @@ Programma studio:
 - 18/06/2024 (Frollo): Impostata la tesina, scritto abstract, introduzione e descrizione del dataset
 - 25/07/2024: New dataset with only numeric features, feature selection sul nuovo dataset
 - 26/07/2024: Finish classification and first part of regression with numeric only dataset.
+- 5/08/2024: Improve utils.py. Abbiamo provato a concludere deep learning per la regressione, però c'è un problema con lo scaling - chiedi al prof.
 
 TODO:
 
