@@ -13,8 +13,15 @@
 - Create categorical dataset
 - Capisci perché puoi fare lo scaling sulle features, in particolare su quelle che hanno una scala $[0, \infty]$ pur sapendo che non esiste un isometria da $[0, 1]$ a $[0, \infty]$
 - Abbiamo provato a concludere deep learning per la regressione, però c'è un problema con lo scaling - con glki stessi dati otteniamo risultati diversi (se non sbaglio per la division del training set e test set utilizziamo lo stesso seed 42).
+- In `main_numeric.py`, c'è un commento Prima di "Dimentionality visualization", dice
+  ```python
+  # MinMaxScaler is necessary otherwise K-means doesn't work well
+  ```
+  Ma il K-means non è un algoritmo di classificazione ma di clustering. Stiamo cercando di creare un algoritmo che lo renda anche di classificazione, ma per ora è sbagliata questa affermazione. Non te lo dimenticare!
 
 ## Notes
+
+### One-Hot encoding
 
 One-hot encoding: dato un sample, dalla feature F1 con k categorie ottengo un vettore di k elementi (k feature nuove)
 

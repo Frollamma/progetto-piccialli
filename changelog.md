@@ -19,6 +19,7 @@ Programma studio:
 - 26/07/2024: Finish classification and first part of regression with numeric only dataset.
 - 5/08/2024: Improve utils.py. Abbiamo provato a concludere deep learning per la regressione, però c'è un problema con lo scaling - chiedi al prof.
 - 7/08/2024: Complete numeric project version. Start feature importance version.
+- 9/08/2024: Complete feature importance version. Fail K-means classifier.
 
 TODO:
 
