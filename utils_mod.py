@@ -17,6 +17,95 @@ from sklearn.cluster import KMeans
 LABELS = ["class_target", "value_target"]
 
 
+# Create a K-means classifier
+class KMeansClassifier(BaseEstimator, ClassifierMixin):
+    def __init__(self):
+        pass
+
+    # def fit(self, X, y: np.ndarray):
+    #     self.kmeans.fit(X)
+
+    #     samples_cluster = self.kmeans.labels_
+
+    #     s = {}
+    #     MM = []
+    #     for i in range(self.kmeans.n_clusters):
+    #         M_i = 0
+    #         my_j = 0
+    #         for j in range(self.kmeans.n_clusters):
+    #             # Count how many samples of class i are in cluster j
+    #             count = np.sum((y == i) & (samples_cluster == j))
+
+    #             if count > M_i:
+    #                 M_i = count
+    #                 my_j = j
+
+    #         put_it = False
+    #         for k in range(len(MM)):
+    #             if M_i <= MM[k]:
+    #                 MM.insert(k, M_i)
+    #                 s[i] = k
+    #                 put_it = True
+
+    #         if not put_it:
+    #             MM.append(M_i)
+    #             s[i] = len(MM) - 1
+
+    def fit(self, X, y: np.ndarray):
+        # n_clusters = len(np.unique(y))
+        n_clusters = 6
+        self.kmeans = KMeans(n_clusters=n_clusters)
+        self.kmeans.fit(X)
+        samples_cluster = self.kmeans.labels_
+
+        # Create a matrix Qij that counts how many samples of class i are in cluster j
+        Q = np.zeros((n_clusters, n_clusters))
+        for i in range(len(y)):
+            Q[y[i], samples_cluster[i]] += 1
+
+        print(f"{Q = }")
+        print(f"{Q.shape = }")
+
+        # Create a dictionary s that, starting from the class with the most number of samples in a specific cluster, maps each class to the cluster, not previously selected, with the most samples of that class
+
+        # Calculate M_i = max_j(Qij) for j in range(n_clusters) and my_j = argmax_j(Qij) for j in range(n_clusters)
+        M = []
+        my_js = []
+
+        for i in range(n_clusters):
+            # Calculate M_i = max_j(Qij) for j in range(n_clusters) and my_j = argmax_j(Qij) for j in range(n_clusters)
+            M_i = np.max(Q[i])
+            my_j = np.argmax(Q[i])
+            M.append((M_i))
+            my_js.append(my_j)
+
+        print(f"{M = }")
+        print(f"{my_js = }")
+
+        # # Sort M_i in descending order and get the permutation
+        # permutation = np.argsort(M)[::-1]
+
+        permutation = sorted(range(len(M)), key=lambda k: M[k], reverse=True)
+
+        print(f"{sorted(M, reverse=True) = }")
+        print(f"{permutation = }")
+
+        # Create the dictionary s that maps permutation[i] to my_js[i]
+        s = {}
+        for i in range(n_clusters):
+            s[my_js[i]] = permutation[i]
+            print(f"{(permutation[i], my_js[i]) = }")
+
+        self.s = s
+        print(f"{self.s = }")
+
+        return self
+
+    def predict(self, X):
+        basic_prediction = self.kmeans.predict(X)
+        return np.array([self.s[cluster] for cluster in basic_prediction])
+
+
 class IdentityScaler(BaseEstimator, TransformerMixin):
     def fit(self, X, y=None):
         return self
