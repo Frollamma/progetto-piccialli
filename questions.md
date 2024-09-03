@@ -1,23 +1,15 @@
 ## Cose da chiedersi
 
 - (PROF) Fare il dataset solo con features categoriche? Perché le numeriche vengono quasi tutte droppate
-- (PROF) Bisogna fare il training pure sulle features venute fuori dal feature importance?
 - Abbiamo droppato 148 features con one hot encoding e 147 usando solo le features numeriche (con Pearson), è un problema? Abbiamo fatto un casino col one hot? Scoprilo
 - (PROF) Stiamo creando il K-means supervised. Se po' fa'?
-- (PROF) Come funziona il Naive-Bayes wuando ho delle feature numeriche, non dovrebbe essere molto probabile che il risultato sia 0?
+- (PROF) Come funziona il Naive-Bayes quando ho delle feature numeriche, non dovrebbe essere molto probabile che il risultato sia 0?
+- (PROF) Abbiamo notato che senza scaling il deep learning regression fa schifo? Mentre con StandardScaler o MinMax scaler migliora notevolmente?
 
 ## TODO
 
-- Finish only numeric dataset. Don't use dimensionality reduction
-- Fix onehot
 - Create categorical dataset
-- Capisci perché puoi fare lo scaling sulle features, in particolare su quelle che hanno una scala $[0, \infty]$ pur sapendo che non esiste un isometria da $[0, 1]$ a $[0, \infty]$
-- Abbiamo provato a concludere deep learning per la regressione, però c'è un problema con lo scaling - con glki stessi dati otteniamo risultati diversi (se non sbaglio per la division del training set e test set utilizziamo lo stesso seed 42).
-- In `main_numeric.py`, c'è un commento Prima di "Dimentionality visualization", dice
-  ```python
-  # MinMaxScaler is necessary otherwise K-means doesn't work well
-  ```
-  Ma il K-means non è un algoritmo di classificazione ma di clustering. Stiamo cercando di creare un algoritmo che lo renda anche di classificazione, ma per ora è sbagliata questa affermazione. Non te lo dimenticare!
+- Capisci perché puoi fare lo scaling sulle features, in particolare su quelle che hanno una scala $[0, \infty)$ pur sapendo che non esiste un isometria da $[0, 1]$ a $[0, \infty)$. Ho capito: praticamente quando fai il min-max scaler vai da $[0, M]$, dove $M$ è il massimo della feature cosndierata e quindi un 'isometria esiste, ma chiaramente se cambia il dataset cambia anche l'isometria, quindi non puoi trovare un'isometria "unica" per tutti i dataset, alsia devi rifare il min max scaler ogni volta.
 
 ## Notes
 
