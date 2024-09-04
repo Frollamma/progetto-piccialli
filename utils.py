@@ -13,6 +13,7 @@ import matplotlib.pyplot as plt
 from sklearn.base import BaseEstimator, TransformerMixin
 from sklearn.base import BaseEstimator, ClassifierMixin
 from sklearn.cluster import KMeans
+from tensorflow.keras import regularizers
 
 LABELS = ["class_target", "value_target"]
 
@@ -50,6 +51,18 @@ class RegressionClassifier(BaseEstimator, ClassifierMixin):
             mask = (y_pred >= self.intervals[i]) & (y_pred < self.intervals[i + 1])
             y_pred_class[mask] = self.classes_map[i]
         return y_pred_class
+
+
+# Function to format the regularizer for printing
+def format_regularizer(reg):
+    if isinstance(reg, regularizers.L2):
+        return f"L2({reg.l2})"
+    elif isinstance(reg, regularizers.L1):
+        return f"L1({reg.l1})"
+    elif isinstance(reg, regularizers.L1L2):
+        return f"L1L2(l1={reg.l1}, l2={reg.l2})"
+    else:
+        return str(reg)  # Fallback for any other regularizer types
 
 
 def get_features(df, labels=LABELS):
@@ -111,25 +124,34 @@ def print_full_classification_report(
     # print("Silhouette Score:", silhouette_score(y_true, y_pred))
 
 
-def print_full_regression_report(y_true, y_pred):
-    # Calculate the mean absolute error
+def get_full_regression_report(y_true, y_pred):
     mae = mean_absolute_error(y_true, y_pred)
-    print(f"Mean absolute error: {mae}")
-
-    # Calculate the mean squared error
     mse = mean_squared_error(y_true, y_pred)
-    print(f"Mean squared error: {mse}")
-
-    # Calculate the relative error
     relative_errors = np.abs((y_true - y_pred) / y_true)
     mean_relative_error = np.mean(relative_errors)
+
+    return mae, mse, mean_relative_error
+
+
+def print_full_regression_report(y_true, y_pred):
+    mae, mse, mean_relative_error = get_full_classification_report(y_true, y_pred)
+
+    print(f"Mean absolute error: {mae}")
+    print(f"Mean squared error: {mse}")
     print(f"Mean relative error: {mean_relative_error}")
 
+    return mae, mse, mean_relative_error
 
-def create_training_history_plot(history):
+
+def create_training_history_plot(history, model_name=None):
     plt.plot(history.history["loss"], label="train")
     plt.plot(history.history["val_loss"], label="valid")
-    plt.title("Model Loss")
+
+    if model_name:
+        plt.title(f"Model Loss - {model_name}")
+    else:
+        plt.title(f"Model Loss")
+
     plt.ylabel("Loss")
     plt.xlabel("Epoch")
     plt.legend()
@@ -137,7 +159,11 @@ def create_training_history_plot(history):
 
     plt.plot(history.history["mae"], label="train")
     plt.plot(history.history["val_mae"], label="valid")
-    plt.title("Model MAE")
+
+    if model_name:
+        plt.title(f"Model MAE - {model_name}")
+    else:
+        plt.title("Model MAE")
     plt.ylabel("MAE")
     plt.xlabel("Epoch")
     plt.legend()
@@ -145,7 +171,11 @@ def create_training_history_plot(history):
 
     plt.plot(history.history["mse"], label="train")
     plt.plot(history.history["val_mse"], label="valid")
-    plt.title("Model MSE")
+
+    if model_name:
+        plt.title(f"Model MSE - {model_name}")
+    else:
+        plt.title("Model MSE")
     plt.ylabel("MSE")
     plt.xlabel("Epoch")
     plt.legend()
